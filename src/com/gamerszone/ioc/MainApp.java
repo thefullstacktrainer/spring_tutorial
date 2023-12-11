@@ -1,4 +1,4 @@
-package com.gamerszone;
+package com.gamerszone.ioc;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

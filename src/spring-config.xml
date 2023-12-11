@@ -6,15 +6,27 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define a bean for the Action genre -->
-    <bean id="actionGenre" class="com.gamerszone.Genre">
+    <bean id="actionGenre" class="com.gamerszone.ioc.Genre">
         <property name="name" value="Action"/>
     </bean>
 
     <!-- Define a bean for the Assassin's Creed game -->
-    <bean id="assassinsCreed" class="com.gamerszone.Game">
+    <bean id="assassinsCreed" class="com.gamerszone.ioc.Game">
         <property name="title" value="Assassin's Creed"/>
         <property name="releaseYear" value="2007"/>
         <property name="genre" ref="actionGenre"/>
+    </bean>
+    
+    <!-- Define a bean for the Action game type -->
+    <bean id="actionGameType" class="com.gamerszone.di.GameType">
+        <property name="name" value="Action"/>
+    </bean>
+
+    <!-- Define a bean for the Assassin's Creed video game using constructor injection -->
+    <bean id="assassinsCreedGame" class="com.gamerszone.di.VideoGame">
+        <constructor-arg value="Assassin's Creed"/>
+        <constructor-arg value="2007"/>
+        <constructor-arg ref="actionGameType"/>
     </bean>
 
 </beans>

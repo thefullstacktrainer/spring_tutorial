@@ -1,4 +1,4 @@
-package com.gamerszone;
+package com.gamerszone.ioc;
 
 //Genre.java
 
