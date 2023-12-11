@@ -2,6 +2,10 @@ package com.gamerszone;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -14,13 +18,23 @@ public class MainApp {
 //        // Output game information
 //        System.out.println(game1);
     	
-        // Create an ApplicationContext and load the configuration file
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+    	 // Deprecated XmlBeanFactory (not recommended, use ApplicationContext)
+        Resource resource = new ClassPathResource("spring-config.xml");
+        BeanFactory factory = new XmlBeanFactory(resource);
 
-        // Retrieve the game bean from the ApplicationContext
-        Game game1 = (Game) context.getBean("assassinsCreed");
+        // Retrieve the game bean from the BeanFactory
+        Game game1 = (Game) factory.getBean("assassinsCreed");
 
         // Output game information
         System.out.println(game1);
+    	
+        // Create an ApplicationContext and load the configuration file
+//        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+
+        // Retrieve the game bean from the ApplicationContext
+//        Game game1 = (Game) context.getBean("assassinsCreed");
+
+        // Output game information
+//        System.out.println(game1);
     }
 }
