@@ -25,5 +25,11 @@ public class MainApp {
 
         // Output library information, including the game details
         System.out.println(library);
+        
+        // Retrieve the Gamer bean from the ApplicationContext
+        Gamer gamer = (Gamer) context.getBean("gamer");
+
+        // Output gamer information
+        System.out.println(gamer);
     }
 }

@@ -1,9 +1,13 @@
 <!-- spring-config.xml -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
 
 	<!-- Define a bean for the Action genre -->
 	<bean id="actionGenre" class="com.gamerszone.ioc.Genre">
@@ -48,5 +52,14 @@
 	<bean id="library" class="com.gamerszone.di.GameLibrary">
 		<constructor-arg ref="minecraft" />
 	</bean>
+	
+	    <!-- Enable annotation-based configuration -->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <!-- Define a bean for the Gamer class with property injection of values from the property file -->
+    <bean id="gamer" class="com.gamerszone.di.Gamer">
+        <property name="name" value="${gamer.name}"/>
+        <property name="level" value="${gamer.level}"/>
+    </bean>
 
 </beans>
