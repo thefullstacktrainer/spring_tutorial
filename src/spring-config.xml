@@ -1,32 +1,52 @@
 <!-- spring-config.xml -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Define a bean for the Action genre -->
-    <bean id="actionGenre" class="com.gamerszone.ioc.Genre">
-        <property name="name" value="Action"/>
-    </bean>
+	<!-- Define a bean for the Action genre -->
+	<bean id="actionGenre" class="com.gamerszone.ioc.Genre">
+		<property name="name" value="Action" />
+	</bean>
 
-    <!-- Define a bean for the Assassin's Creed game -->
-    <bean id="assassinsCreed" class="com.gamerszone.ioc.Game">
-        <property name="title" value="Assassin's Creed"/>
-        <property name="releaseYear" value="2007"/>
-        <property name="genre" ref="actionGenre"/>
-    </bean>
-    
-    <!-- Define a bean for the Action game type -->
-    <bean id="actionGameType" class="com.gamerszone.di.GameType">
-        <property name="name" value="Action"/>
-    </bean>
+	<!-- Define a bean for the Assassin's Creed game -->
+	<bean id="assassinsCreed" class="com.gamerszone.ioc.Game">
+		<property name="title" value="Assassin's Creed" />
+		<property name="releaseYear" value="2007" />
+		<property name="genre" ref="actionGenre" />
+	</bean>
 
-    <!-- Define a bean for the Assassin's Creed video game using constructor injection -->
-    <bean id="assassinsCreedGame" class="com.gamerszone.di.VideoGame">
-        <constructor-arg value="Assassin's Creed"/>
-        <constructor-arg value="2007"/>
-        <constructor-arg ref="actionGameType"/>
-    </bean>
+	<!-- Define a bean for the Action game type -->
+	<bean id="actionGameType" class="com.gamerszone.di.GameType">
+		<property name="name" value="Action" />
+	</bean>
+
+	<!-- Define a bean for the Assassin's Creed video game using constructor 
+		injection -->
+	<bean id="assassinsCreedGame" class="com.gamerszone.di.VideoGame">
+		<constructor-arg value="Assassin's Creed" />
+		<constructor-arg value="2007" />
+		<constructor-arg ref="actionGameType" />
+	</bean>
+
+	<!-- Define a bean for another video game using setter injection (e.g., 
+		Call of Duty) -->
+	<bean id="callOfDutyGame" class="com.gamerszone.di.VideoGame">
+		<property name="title" value="Call of Duty" />
+		<property name="releaseYear" value="2005" />
+		<property name="gameType" ref="actionGameType" />
+	</bean>
+
+	<!-- Define a bean for the Game class -->
+	<bean id="minecraft" class="com.gamerszone.di.Game">
+		<constructor-arg value="Minecraft" />
+		<constructor-arg value="2004" />
+	</bean>
+
+	<!-- Define a bean for the Library class with constructor injection -->
+	<bean id="library" class="com.gamerszone.di.GameLibrary">
+		<constructor-arg ref="minecraft" />
+	</bean>
 
 </beans>

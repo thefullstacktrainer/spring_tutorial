@@ -4,6 +4,10 @@ public class VideoGame {
     private String title;
     private int releaseYear;
     private GameType gameType;
+    
+    public VideoGame() {
+    	super();
+    }
 
     // Constructor for constructor-based DI
     public VideoGame(String title, int releaseYear, GameType gameType) {
