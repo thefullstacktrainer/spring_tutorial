@@ -3,6 +3,8 @@ package com.gamerszone.di;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gamerszone.di.beanscope.Gamers;
+
 public class MainApp {
     public static void main(String[] args) {
         // Modern ApplicationContext
@@ -31,5 +33,16 @@ public class MainApp {
 
         // Output gamer information
         System.out.println(gamer);
+        
+        // Retrieve the Gamers bean from the ApplicationContext
+        Gamers gamers = (Gamers) context.getBean("gamers");
+
+        // Output gamers information
+        System.out.println(gamers);
+
+        // Close the application context to trigger destruction callbacks
+        ((ClassPathXmlApplicationContext) context).close();
+        
+        
     }
 }

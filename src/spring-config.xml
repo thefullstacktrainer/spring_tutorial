@@ -61,5 +61,41 @@
         <property name="name" value="${gamer.name}"/>
         <property name="level" value="${gamer.level}"/>
     </bean>
+    
+    <!-- Define a bean for the Gamers class with prototype scope -->
+    <bean id="gamers" class="com.gamerszone.di.beanscope.Gamers" scope="prototype">
+        <property name="title" value="${gamers.title}"/>
+        <property name="level" value="${gamers.level}"/>
+    </bean>
+    
+     <!-- Singleton Scope -->
+    <bean id="singletonScopedGamers" class="com.gamerszone.di.beanscope.Gamers">
+        <!-- ... properties and values ... -->
+    </bean>
+
+    <!-- Prototype Scope -->
+    <bean id="prototypeScopedGamers" class="com.gamerszone.di.beanscope.Gamers" scope="prototype">
+        <!-- ... properties and values ... -->
+    </bean>
+
+    <!-- Request Scope -->
+    <bean id="requestScopedGamers" class="com.gamerszone.di.beanscope.Gamers" scope="request">
+        <!-- ... properties and values ... -->
+    </bean>
+
+    <!-- Session Scope -->
+    <bean id="sessionScopedGamers" class="com.gamerszone.di.beanscope.Gamers" scope="session">
+        <!-- ... properties and values ... -->
+    </bean>
+
+    <!-- Global Session Scope -->
+    <bean id="globalSessionScopedGamers" class="com.gamerszone.di.beanscope.Gamers" scope="globalSession">
+        <!-- ... properties and values ... -->
+    </bean>
+
+    <!-- Application Scope -->
+    <bean id="applicationScopedGamers" class="com.gamerszone.di.beanscope.Gamers" scope="application">
+        <!-- ... properties and values ... -->
+    </bean>
 
 </beans>
