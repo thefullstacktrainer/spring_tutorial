@@ -2,7 +2,9 @@
 package com.gamerszone.di.annotations;
 
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Player {
     private String playerName;
 

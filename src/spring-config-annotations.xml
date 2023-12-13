@@ -21,5 +21,13 @@
     <bean name="multiplayerGame" class="com.gamerszone.di.annotations.MultiplayerGame" autowire="constructor">
         <property name="gameTitle" value="Massive Online Adventure"/>
     </bean>
+    
+        <!-- Bean definition for Player -->
+    <bean name="player2" class="com.gamerszone.di.annotations.Player">
+        <!-- The playerName property is not explicitly set here -->
+        <property name="playerName" value="The Xamp"/>
+    </bean>
+        <!-- Component scanning for the "com.gamerszone.di.annotations" package -->
+    <context:component-scan base-package="com.gamerszone.di.annotations"/>
 
 </beans>

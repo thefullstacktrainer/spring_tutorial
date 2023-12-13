@@ -2,14 +2,17 @@
 package com.gamerszone.di.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MultiplayerGame {
     private String gameTitle;
     private Player player;
 
     // Constructor for autowiring
     @Autowired
-    public MultiplayerGame(Player player) {
+    public MultiplayerGame(@Qualifier("player2") Player player) {
         this.player = player;
     }
 
