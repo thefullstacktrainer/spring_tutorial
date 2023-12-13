@@ -1,0 +1,38 @@
+<!-- spring-config-autowire.xml -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean definition for Player -->
+    <bean name="player" class="com.gamerszone.di.autowire.Player">
+        <property name="playerName" value="Rahul"/>
+    </bean>
+
+    <!-- Bean definition for Game with autowire by name -->
+    <bean name="game" class="com.gamerszone.di.autowire.Game1" autowire="byName">
+        <property name="title" value="Indian Adventure"/>
+    </bean>
+    
+        <!-- Bean definition for IndianPlayer -->
+    <bean name="indianPlayer" class="com.gamerszone.di.autowire.IndianPlayer">
+        <property name="playerName" value="Virat"/>
+    </bean>
+
+    <!-- Bean definition for IndianGame with autowire by type -->
+    <bean name="indianGame" class="com.gamerszone.di.autowire.IndianGame" autowire="byType">
+        <property name="title" value="Indian Sports"/>
+    </bean>
+    
+        <!-- Bean definition for Warrior -->
+    <bean name="warrior" class="com.gamerszone.di.autowire.Warrior">
+        <property name="warriorName" value="Ares"/>
+    </bean>
+
+    <!-- Bean definition for BattleRoyaleGame with autowire by constructor -->
+    <bean name="battleRoyaleGame" class="com.gamerszone.di.autowire.BattleRoyaleGame" autowire="constructor">
+        <property name="title" value="Epic Battle Royale"/>
+    </bean>
+
+</beans>
